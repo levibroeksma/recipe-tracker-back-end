@@ -19,8 +19,24 @@ public class Recipe {
 
     private String calories;
 
+    private Boolean fish;
+
+    private Boolean beef;
+
+    private Boolean lamb;
+
+    private Boolean pork;
+
+    private Boolean vegan;
+
+    private Boolean vegetarian;
+
+    private Boolean spicy;
+
     @Lob
     private Byte[] flag;
+
+    private Byte[] recipeImage;
 
 //    @OneToOne
 //    @JsonBackReference("recipeIngredients")
@@ -47,8 +63,42 @@ public class Recipe {
     public String getCalories() {
         return calories;
     }
+
     public Byte[] getFlag() {
         return flag;
+    }
+
+
+    public Byte[] getRecipeImage() {
+        return recipeImage;
+    }
+
+    public Boolean getBeef() {
+        return beef;
+    }
+
+    public Boolean getFish() {
+        return fish;
+    }
+
+    public Boolean getLamb() {
+        return lamb;
+    }
+
+    public Boolean getPork() {
+        return pork;
+    }
+
+    public Boolean getSpicy() {
+        return spicy;
+    }
+
+    public Boolean getVegan() {
+        return vegan;
+    }
+
+    public Boolean getVegetarian() {
+        return vegetarian;
     }
 
     // Setters
@@ -76,4 +126,38 @@ public class Recipe {
     public void setFlag(Byte[] flag) {
         this.flag = flag;
     }
+
+    public void setRecipeImage(Byte[] recipeImage) {
+        this.recipeImage = recipeImage;
+    }
+
+    public void setBeef(Boolean beef) {
+        this.beef = beef;
+    }
+
+    public void setFish(Boolean fish) {
+        this.fish = fish;
+    }
+
+    public void setLamb(Boolean lamb) {
+        this.lamb = lamb;
+    }
+
+    public void setPork(Boolean pork) {
+        this.pork = pork;
+    }
+
+    public void setSpicy(Boolean spicy) {
+        this.spicy = spicy;
+    }
+
+    public void setVegan(Boolean vegan) {
+        this.vegan = vegan;
+    }
+
+    public void setVegetarian(Boolean vegetarian) {
+        this.vegetarian = vegetarian;
+    }
 }
+
+
