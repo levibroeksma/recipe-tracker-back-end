@@ -5,42 +5,52 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "Recipes")
 public class Recipe {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "recipe_title")
     private String title;
 
+    @Column(name = "recipe_description")
     private String description;
 
+    @Column(name = "recipe_prepTime")
     private String prepTime;
 
+    @Column(name = "recipe_calories")
     private String calories;
 
+    @Column(name = "recipe_fish_boolean")
     private Boolean fish;
 
+    @Column(name = "recipe_beef_boolean")
     private Boolean beef;
 
+    @Column(name = "recipe_lamb_boolean")
     private Boolean lamb;
 
+    @Column(name = "recipe_pork_boolean")
     private Boolean pork;
 
+    @Column(name = "recipe_vegan_boolean")
     private Boolean vegan;
 
+    @Column(name = "recipe_vegetarian_boolean")
     private Boolean vegetarian;
 
+    @Column(name = "recipe_spicy_boolean")
     private Boolean spicy;
 
     @Lob
+    @Column(name = "country_flag_path")
     private Byte[] flag;
-
+    @Lob
+    @Column(name = "country_recipeImg_path")
     private Byte[] recipeImage;
-
-//    @OneToOne
-//    @JsonBackReference("recipeIngredients")
-//    Ingredients ingredients;
 
     // Getters
 
@@ -67,7 +77,6 @@ public class Recipe {
     public Byte[] getFlag() {
         return flag;
     }
-
 
     public Byte[] getRecipeImage() {
         return recipeImage;
@@ -159,5 +168,3 @@ public class Recipe {
         this.vegetarian = vegetarian;
     }
 }
-
-
