@@ -22,6 +22,6 @@ public interface RecipeService {
 
     void uploadRecipeImage(Long id, MultipartFile file) throws IOException;
 
-    byte[] getRecipeImage(Long id);
+    byte[] getRecipeId(Long id);
 
 }

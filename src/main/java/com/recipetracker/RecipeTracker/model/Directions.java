@@ -1,9 +1,8 @@
 package com.recipetracker.RecipeTracker.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Directions {
@@ -11,7 +10,8 @@ public class Directions {
     @GeneratedValue
     private Long id;
 
+    @OneToMany
     @Column(name = "recipe_directions")
-    private String[] directions;
+    private List<Directions> directions = new ArrayList<>();
 
 }
