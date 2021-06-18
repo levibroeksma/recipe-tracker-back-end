@@ -1,58 +1,61 @@
 package com.recipetracker.RecipeTracker.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "Recipes")
+@Table
 public class Recipe {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "recipe_title")
     private String title;
 
-    @Column(name = "recipe_description")
     private String description;
 
-    @Column(name = "recipe_prepTime")
     private String prepTime;
 
-    @Column(name = "recipe_calories")
     private String calories;
 
-    @Column(name = "recipe_fish_boolean")
     private Boolean fish;
 
-    @Column(name = "recipe_beef_boolean")
     private Boolean beef;
 
-    @Column(name = "recipe_lamb_boolean")
     private Boolean lamb;
 
-    @Column(name = "recipe_pork_boolean")
     private Boolean pork;
 
-    @Column(name = "recipe_vegan_boolean")
     private Boolean vegan;
 
-    @Column(name = "recipe_vegetarian_boolean")
     private Boolean vegetarian;
 
-    @Column(name = "recipe_spicy_boolean")
     private Boolean spicy;
 
+    @OneToMany(mappedBy = "ingredients")
+    private List<Ingredients> ingredients;
+
+    @OneToMany(mappedBy = "directions")
+    private List<Directions> directions;
+
+//    @Lob
+//    @Column(name = "country_flag_path")
+//    private Byte[] flag;
+
     @Lob
-    @Column(name = "country_flag_path")
-    private Byte[] flag;
-    @Lob
-    @Column(name = "country_recipeImg_path")
     private Byte[] recipeImage;
 
     // Getters
+
+    public List<Ingredients> getIngredients() {
+        return ingredients;
+    }
+
+    public List<Directions> getDirections() {
+        return directions;
+    }
 
     public Long getId() {
         return id;
@@ -74,9 +77,9 @@ public class Recipe {
         return calories;
     }
 
-    public Byte[] getFlag() {
-        return flag;
-    }
+//    public Byte[] getFlag() {
+//        return flag;
+//    }
 
     public Byte[] getRecipeImage() {
         return recipeImage;
@@ -132,11 +135,11 @@ public class Recipe {
         this.calories = calories;
     }
 
-    public void setFlag(Byte[] flag) {
-        this.flag = flag;
-    }
+//    public void setFlag(Byte[] flag) {
+//        this.flag = flag;
+//    }
 
-    public void setRecipeImage(Byte[] recipeImage) {
+    public void setRecipeImage(byte[] recipeImage) {
         this.recipeImage = recipeImage;
     }
 
